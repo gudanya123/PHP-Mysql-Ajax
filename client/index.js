@@ -100,7 +100,7 @@ $('#list').on('click','li',function () {
 
 function getData(){
     $.ajax({
-        url: 'http://localhost/php/mysql/index.php',
+        url: 'http://localhost/php/mysql/server/index.php',
         type: 'GET',
         data:{
             page_size: pageSize,
