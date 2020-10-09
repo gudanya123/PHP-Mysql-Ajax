@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分页</title>
+    <style>
+        #list {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            width: 60%;
+            margin: 0 auto;
+            justify-content: center;
+            padding: 0;
+        }
+
+        li {
+            width: auto;
+            line-height: 24px;
+            border: 1px solid #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .list-page {
+            width: 30px;
+        }
+
+        .roll {
+            padding: 0 10px;
+        }
+
+        table {
+            width: 60%;
+            text-align: center;
+            margin: 50px auto;
+        }
+
+        thead {
+            background-color: #555;
+            color: #fff;
+        }
+
+        tbody tr:nth-child(2n+1) td {
+            background-color: #fff;
+            color: #555;
+        }
+
+        tbody tr:nth-child(2n) td {
+            background-color: #a6a6a6;
+            color: #555;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        input {
+            height: 100%;
+            width: 80px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        #go {
+            display: inline-block;
+            background-color: #555;
+            color: #fff;
+            padding: 0 15px;
+            line-height: 26px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h3>分页数据展示</h3>
+<table>
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>用户名</td>
+            <td>密码</td>
+        </tr>
+    </thead>
+    <tbody id="data">
+
+    </tbody>
+</table>
+<ul id="list">
+    <li class="roll">上一页</li>
+    <li class="list-page"></li>
+    <li class="list-page"></li>
+    <li class="list-page"></li>
+    <li class="list-page"></li>
+    <li class="list-page"></li>
+    <li class="list-page"></li>
+    <li class="list-page"></li>
+    <li class="list-page"></li>
+    <li class="list-page"></li>
+    <li class="roll">下一页</li>
+
+    <div style="border:none">
+        <input type="text" value="" id="goInput">
+        <span id="go">Go</span>
+    </div>
+</ul>
+
+<script src="jquery-3.4.1.min.js"></script>
+<script src="index.js"></script>
+<script>
+    getData();
+
+    $('#go').click(function () {
+        let value = $('#goInput').val();
+
+        setCurrentPage(value);
+        getData();
+    });
+
+    $('#goInput').keydown(function (event) {
+        if(event.keyCode == 13){
+            let value = $('#goInput').val();
+            setCurrentPage(value);
+            getData();
+
+        }
+    });
+
+
+</script>
+
+</body>
+</html>
